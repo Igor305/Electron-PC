@@ -1,0 +1,176 @@
+<input class="visually-hidden" autofocus [(ngModel)]="barcode">
+<!--Режим ожидания -->
+<span *ngIf="mode == 0;" >
+   <span class = "slider">
+      <span *ngIf="device == '546';" ><img class="slide" src="./assets/img/42.Episode.png"></span>
+      <img class="slide" src="./assets/img/Банер_ПЧ_мал_Реклама_поставщика_Кава_4_01_10_01.png">
+      <img class="slide" src="./assets/img/39.Episode.png">
+      <img class="slide" src="./assets/img/40.Episode.png">
+      <img class="slide" src="./assets/img/41.Episode.png">
+      <img class="slide" src="./assets/img/42.Episode.png">
+      <img class="slide" src="./assets/img/43.Episode.png">
+      <img class="slide" src="./assets/img/57.Episode.png">  
+   </span>
+</span>
+<!--Режим ручного ввода-->
+<div *ngIf="mode == 9999;" class = "manualInputBc">
+      <div class = "manualInputValue" (keypress) ="keypress($event)">
+         {{barcode}}
+      </div>
+      <mat-progress-bar class = "mat-progress-bar" *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+</div>
+<!--Режим конфигурации -->
+<span *ngIf="mode == 1111;" >
+   <span class ="name" >
+      <mat-grid-list cols = "1">
+         <br><br><br>
+         <span class ="config">Вітаю у режимі конфігурації</span> <br><br><br>
+         <span class ="config">Проскануйте номер магазина</span>
+      </mat-grid-list>   
+   </span>
+</span>
+<span *ngIf="mode == 1112;" >
+   <span class ="name" >
+      <mat-grid-list cols = "1">
+         <br><br><br>
+         <span class ="config">Вітаю у режимі конфігурації</span> <br><br><br>
+         <span class ="config">Проскануйте номер ПЧ</span>
+      </mat-grid-list>   
+   </span>
+</span>
+<span *ngIf="mode == 1113;" >
+   <span class ="name" >
+      <mat-grid-list cols = "1">
+         <br><br><br>
+         <span class ="config">Вітаю у режимі конфігурації</span> <br><br><br>
+         <span class ="config">Проскануйте IP</span>
+      </mat-grid-list>   
+   </span>
+</span>
+<span *ngIf="mode == 1114;" >
+   <span class ="name" >
+      <mat-grid-list cols = "1">
+         <br><br><br>
+         <span class ="config">Вітаю у режимі конфігурації</span> <br><br><br>
+         <span class ="config">Проскануйте номер корпусу</span>
+      </mat-grid-list>   
+   </span>
+</span>
+<span *ngIf="mode == 1115;" >
+   <mat-grid-list cols = "1">
+         <br><br><br><br><br><br><br>
+         <span class ="config">Номер магазину: {{this.stock}}  </span> <br><br><br>
+         <span class ="config">Номер ПЧ: {{this.device}}  </span> <br><br><br>
+         <span class ="config">Статичний IP: {{this.ip}} </span> <br><br><br>
+         <span class ="config">Номер корпусу: {{this.numberBody}}  </span> 
+         <mat-progress-bar class = "mat-progress-bar" *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+   </mat-grid-list>   
+</span>
+
+<!--Режим сканирования товара -->
+<span *ngIf="mode == 1;" >
+   <mat-grid-list cols ="1">
+      <span *ngIf="errorMessage == false;" >
+         <img class='image' id="image"/> 
+            <span class = "posRightStock">
+               <span *ngIf="productResponseModel.PriceOld != null">
+                  <span class = "priceOld">{{productResponseModel.PriceOld}}</span>  
+                     <span class = "pennyOld" *ngIf="productResponseModel.PennyOld == 0">{{productResponseModel.PennyOld}}0</span>
+                     <span class = "currencyOld">грн</span>
+                     <span class = "pennyOld" *ngIf="productResponseModel.PennyOld != 0">{{productResponseModel.PennyOld}}<br></span> 
+                     <span class = "currencyOld">грн</span>
+                  </span>  
+               <br>
+               <span class = "price">{{productResponseModel.Price}}</span> 
+               <span class = "penny" *ngIf="productResponseModel.Penny == 0">{{productResponseModel.Penny}}0<br></span> 
+               <span class = "currency">грн</span>
+               <span class = "penny" *ngIf="productResponseModel.Penny != 0">{{productResponseModel.Penny}}<br></span> 
+               <span class = "currency">грн</span>
+               </span>  
+         <span class ="hr_top">
+            <hr width="450">
+            <span class ="name">{{productResponseModel.Name}} </span> 
+         </span>
+         <br>
+         <span class ="hr_bottom">
+            <hr width="450">
+            <span class ="additional">Ш/К:  <span class ="additionalValue">{{productResponseModel.Barcode}}</span></span>
+            <span class ="additionalRange">Кількість:  <span class ="additionalValue">{{productResponseModel.Qty}}</span></span>
+            <span class ="additionalRange">Код:  <span class ="additionalValue">{{productResponseModel.Id}}</span></span>
+         </span>
+         
+         <mat-progress-bar mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+      </span>
+      <span *ngIf="errorMessage == true;" >
+         <img src="./assets/img/resources/productError_dark.jpg">  
+         <mat-progress-bar *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+      </span>
+   </mat-grid-list>
+</span>
+
+<!--Режим сопутствующие товары-->
+<div *ngIf="mode == 2">
+   <mat-grid-list cols = "1">
+      <div class = "mode2Bc"></div>
+   </mat-grid-list>
+
+</div>
+
+
+<!--Режим бонусной карты -->
+<span *ngIf="mode == 3;" >
+   <mat-grid-list cols ="1">
+      <span class = "mode3Check">ПЕРЕВІРКА
+         <span class = "mode3BonusText">БОНУСІВ</span>
+      </span> 
+      <br><br><br><br><br><br>
+      <hr width="900px">
+      <span class = "mode3Name">{{cardResponseModel.Name}}, на Вашому рахунку</span>
+      <span class = "mode3Bonus">{{cardResponseModel.Bonus}} </span> 
+      <mat-progress-bar *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+   </mat-grid-list>
+</span>
+
+<!--Режим регистрации персонала -->
+<span *ngIf="mode == 4;" >
+   <mat-grid-list cols ="1">
+      <span class = "mode4Fixation">ФІКСАЦІЯ
+         <span class = "mode4WorkTime">РОБОЧОГО ЧАСУ</span>       
+      </span>
+      <br><br><br><br><br><br>
+      <hr width="900px">
+      <span class = "mode4Name">{{employeeRegisterResponseModel.Name}} </span>
+      <span class = "mode4Status" *ngIf="employeeRegisterResponseModel.State == 0;"> початок </span>
+      <span class = "mode4Status" *ngIf="employeeRegisterResponseModel.State == 1;"> кінець </span>
+      <span class = "mode4Time">робочого дня зафіксовано о {{timeNow}} </span>
+      <mat-progress-bar *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+    </mat-grid-list>
+    
+</span>
+
+<!--Режим сканирования оборудования -->
+<span *ngIf="mode == 5;" >
+   <span *ngIf="errorMessage == false;" >
+      <mat-grid-list cols="2" rowHeight="1:1">
+         <mat-grid-tile>
+            <img class='image' id="assetImage"/><br>
+         </mat-grid-tile>
+         <mat-grid-tile>      
+            Id - {{assetResponseModel.Code}} <br>
+            штрих-код товарe - {{assetResponseModel.Barcode}} <br>
+            Description - {{assetResponseModel.Description}} <br>
+            FactoryNum - {{assetResponseModel.FactoryNum}} <br>
+            InvNum - {{assetResponseModel.InvNum}} <br>
+            Type - {{assetResponseModel.Type}} <br>
+         </mat-grid-tile>
+      </mat-grid-list>
+      <mat-progress-bar *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+   </span>
+   <span *ngIf="errorMessage == true;" >
+      <hr>
+      <span class = "errorMessage">Товар не знайдено</span> <br>
+      <span class ="additional">Зверніться до продавця-консультанта</span>
+      <hr>
+      <mat-progress-bar *ngIf= "this.progressbarValue > 0" mode="determinate" [value]='progressbarValue'></mat-progress-bar>
+   </span>
+</span>

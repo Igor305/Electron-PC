@@ -1,0 +1,253 @@
+mat-grid-list{
+  width: 1024px;
+  height: 600px;
+  background-image: url(../../assets/img/resources/systemInfo_dark.jpg);
+}
+mat-progress-bar{
+  position:absolute; 
+  width: 1018px;
+  height: 15px;
+  bottom: 3px; 
+}
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #3c7c1e;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #190e2c;
+}
+
+::ng-deep .mat-progress-bar {
+  border: 3px double  #7e7e7e;
+}
+hr{
+  border: none;
+  background-color: #7e7e7e;
+  color: #7e7e7e;
+  height: 2px;
+  margin-bottom: 1px;
+}
+.slider{
+  width: 1024px;
+  height: 600px;
+}
+.slide{
+  display: none;
+}
+.image{
+  position: relative;
+  width: 490px;
+  height: 540px;
+  float: right;
+  margin-right: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.config{
+  margin-left: 35%;
+  color : #f3f3f0;
+  font-size : 25px;
+}
+.manualInputBc{
+  width: 1024px;
+  height: 600px;
+  background-size: 100%;
+  background-image: url('/assets/img/resources/manualInputBc_dark.png');
+}
+.manualInputValue{
+  position:absolute;
+  margin-top: 250px;
+  margin-left: 50px;
+  font-size: 55px;
+}
+.name{
+  position: absolute;
+  float: left;
+  color : #f3f3f0;
+  font-size : 45px;
+}
+.priceOld {
+  position:absolute;
+  top: 30px;
+  right: 610px;
+  font-size: 95px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.pennyOld{
+  position:absolute;
+  top: 40px;
+  right: 560px;
+  color: #FFFFFF;
+  font-size : 40px;
+  font-weight: bold;
+  text-align: left;
+}
+.priceOld:before {
+  position: absolute;
+  bottom: 50px;
+  border-bottom: 2px solid #FFFFFF;
+  content: "";
+  width: 130%;
+  height: 100%;
+  transform: rotate(-17deg);
+}
+.currencyOld{
+  position:absolute;
+  top: 80px;
+  right: 545px;
+  color: #FFFFFF;
+  font-size : 40px;
+  text-align: left;
+}
+.price{
+  position:absolute;
+  top: 130px;
+  padding-right: 455px;
+  right: 20%;
+  color : hsl(59, 75%, 50%);
+  font-size : 170px;
+  text-align: right;
+  font-weight: bold;
+}
+.penny{
+  position: absolute;
+  top: 160px;
+  right: 57%;
+  text-align: left;
+  color : hsl(59, 75%, 50%);
+  font-size : 65px;
+  font-weight: bold;
+}
+.currency{
+  position:absolute;
+  top: 235px;
+  right: 56%;
+  color:hsl(59, 75%, 50%);
+  font-size : 55px;
+  text-align: left;
+}
+.posRightStock{
+  float: right;
+  margin-right: 145px;
+  text-align: right;
+  margin-top: 50px;
+}
+.hr_top{
+  position: absolute;
+  margin-left: 30px;
+  bottom: 225px;
+}
+.hr_bottom{
+  margin-left: 30px;
+  position: absolute;
+  bottom: 30px;
+}
+.additional{
+  margin-left: 12px;
+  color : #b4b4b4;
+  font-size : 16px;
+}
+.additionalRange{
+  color : #b4b4b4;
+  margin-left: 45px;
+}
+.additionalValue{
+  color:honeydew;
+}
+
+.mode2Bc{
+  width: 1024px;
+  height: 600px;
+  background-size: 100%;
+  background-image: url('/assets/img/resources/companionProdBcDark.png');
+}
+
+.mode3Check{
+  font-weight: 10;
+  position: absolute;
+  color:honeydew;
+  margin-top: 40px;
+  margin-left: 250px;
+  font-size: 55px;
+}
+
+.mode3BonusText{
+  color:hsl(51, 98%, 48%);
+  font-weight: 500;
+}
+
+.mode3Name{
+  position: absolute;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 130px;
+  padding-top: 10px;
+  border-radius: 50px 50px;;
+  color:hsl(0, 0%, 0%);
+  width: 800px;
+  height: 50px;
+  font-size: 30px;
+  background: hsl(51, 98%, 48%);
+  font-weight: 500;
+}
+
+.mode3Bonus{
+  position: absolute;
+  text-align: center;
+  margin-top: 130px;
+  margin-left: 150px;
+  color: honeydew;
+  width: 800px;
+  height: 300px;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size: 220px;
+}
+
+.mode4Fixation{
+  font-weight: 10;
+  position: absolute;
+  color:honeydew;
+  margin-top: 40px;
+  margin-left: 170px;
+  font-size: 55px;
+}
+
+.mode4WorkTime{
+  color:hsl(51, 98%, 48%);
+}
+
+.mode4Name{
+  position: absolute;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 10px;
+  color:hsl(51, 98%, 48%);
+  font-size: 87px;
+}
+
+.mode4Status{
+  position: absolute;
+  margin-top: 220px;
+  margin-left: 435px;
+  color:#44a019;
+  font-size: 50px;
+}
+
+.mode4Time{
+  position: absolute;
+  text-align: center;
+  margin-top: 280px;
+  margin-left: 250px;
+  color: honeydew;
+  font-size: 30px;
+}
+
+
